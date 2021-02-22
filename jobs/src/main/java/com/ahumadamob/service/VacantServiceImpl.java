@@ -46,7 +46,7 @@ public class VacantServiceImpl implements IVacantService {
 			vacant3.setPostDate(sdf.parse("05-01-2021"));
 			vacant3.setSalary(17500000.0);
 			vacant3.setHighlight(0);
-			vacant3.setLogo("river.png");
+			vacant3.setImage("river.png");
 			
 			// Creamos la oferta de trabajo 4
 			Vacant vacant4 = new Vacant();
@@ -56,7 +56,7 @@ public class VacantServiceImpl implements IVacantService {
 			vacant4.setPostDate(sdf.parse("08-01-2021"));
 			vacant4.setSalary(57500000.0);
 			vacant4.setHighlight(1);
-			vacant4.setLogo("river.png");
+			vacant4.setImage("river.png");
 			
 			vacants.add(vacant1);
 			vacants.add(vacant2);

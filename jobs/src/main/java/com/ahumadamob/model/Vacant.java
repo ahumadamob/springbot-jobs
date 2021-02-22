@@ -10,7 +10,7 @@ public class Vacant {
 	private Date postDate;
 	private Double salary;
 	private Integer highlight;
-	private String logo = "noimage.png";
+	private String image = "noimage.png";
 	
 	
 	public Integer getId() {
@@ -48,17 +48,19 @@ public class Vacant {
 	}
 	public void setHighlight(Integer highlight) {
 		this.highlight = highlight;
-	}	
-	public String getLogo() {
-		return logo;
 	}
-	public void setLogo(String logo) {
-		this.logo = logo;
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	@Override
 	public String toString() {
 		return "Vacant [id=" + id + ", name=" + name + ", description=" + description + ", postDate=" + postDate
-				+ ", salary=" + salary + ", highlight=" + highlight + "]";
+				+ ", salary=" + salary + ", highlight=" + highlight + ", image=" + image + "]";
 	}
+	
+
 
 }
