@@ -7,4 +7,5 @@ import com.ahumadamob.model.Vacant;
 public interface IVacantService {
 	List<Vacant> fetchAll();
 	Vacant fetchById(Integer idVacant);
+	void save(Vacant vacant);
 }

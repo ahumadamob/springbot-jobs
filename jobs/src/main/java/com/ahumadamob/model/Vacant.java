@@ -11,6 +11,9 @@ public class Vacant {
 	private Double salary;
 	private Integer highlight;
 	private String image = "noimage.png";
+	private String status;
+	private String details;
+	private Category category;
 	
 	
 	public Integer getId() {
@@ -55,12 +58,28 @@ public class Vacant {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getDetails() {
+		return details;
+	}
+	public void setDetails(String details) {
+		this.details = details;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	@Override
 	public String toString() {
 		return "Vacant [id=" + id + ", name=" + name + ", description=" + description + ", postDate=" + postDate
-				+ ", salary=" + salary + ", highlight=" + highlight + ", image=" + image + "]";
+				+ ", salary=" + salary + ", highlight=" + highlight + ", image=" + image + ", status=" + status
+				+ ", details=" + details + ", category=" + category + "]";
 	}
-	
-
-
 }

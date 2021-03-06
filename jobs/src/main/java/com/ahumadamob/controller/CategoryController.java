@@ -1,19 +1,31 @@
 package com.ahumadamob.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.ahumadamob.model.Category;
+import com.ahumadamob.service.ICategoryService;
 
 @Controller
 @RequestMapping(value="categories")
 public class CategoryController {
 	
-	@GetMapping("index")
+	@Autowired
+	private ICategoryService serviceCategory;
+	
+	@GetMapping("/")
 	public String index(Model model) {
-		return "categories/index";
+		List<Category> categories = serviceCategory.fetchAll();
+		model.addAttribute("categories", categories);		
+		return "categories/listCategories";
 	}
 	
 	@GetMapping("create")
@@ -22,10 +34,13 @@ public class CategoryController {
 	}
 	
 	@PostMapping("save")
-	public String save(@RequestParam("name") String name, @RequestParam("description") String description) {
-		System.out.println("name: " + name);
-		System.out.println("description: " + description);
-		return "categories/index";
+	public String save(Category category, BindingResult result, RedirectAttributes redirectAttributes) {
+		if(result.hasErrors()) {
+			return "categories/formCategory";
+		}
+		serviceCategory.save(category);
+		redirectAttributes.addFlashAttribute("msg", "La vacante ha sido añadida correctamente");
+		return "redirect:/categories/";
 	}
 
 }

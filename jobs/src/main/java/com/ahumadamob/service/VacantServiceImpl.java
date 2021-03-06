@@ -15,7 +15,7 @@ public class VacantServiceImpl implements IVacantService {
 	private List<Vacant> vacants = null;
 	
 	public VacantServiceImpl() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		vacants = new LinkedList<Vacant>();
 		
 		try {
@@ -84,6 +84,12 @@ public class VacantServiceImpl implements IVacantService {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void save(Vacant vacant) {
+		vacants.add(vacant);
+		
 	}
 
 }
